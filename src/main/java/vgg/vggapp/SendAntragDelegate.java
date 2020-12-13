@@ -3,6 +3,7 @@ package vgg.vggapp;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.camunda.bpm.engine.impl.javax.el.ELException;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -18,6 +19,7 @@ public class SendAntragDelegate implements JavaDelegate {
 		Map<String, Object> processVariables = new HashMap();
 		// fill the message; use new names
 		processVariables = execution.getVariables();
+		try {
 		long alter = calculateAge( convertToLocalDate((Date)execution.getVariable("gb")),LocalDate.now());
 		long bmi =   Math.round(  (long)execution.getVariable("gewicht")   / (Math.pow((long)execution.getVariable("gr")/100.0,2)  ) );
 		long risk = 0 ;
@@ -32,7 +34,10 @@ public class SendAntragDelegate implements JavaDelegate {
 		processVariables.put("malter", alter);
 		processVariables.put("mbmi", bmi);
 		processVariables.put("mrisk",risk);
-		
+		}
+		catch(ELException ex) {
+			
+		}
 		// set the correlation id to identify this in receiving process
 		String correlationId = execution.getBusinessKey();
 		if (correlationId == null) {			// if not set at process start
