@@ -38,6 +38,9 @@ public class SendAntragDelegate implements JavaDelegate {
 		catch(ELException ex) {
 			
 		}
+		catch(Exception ex) {
+			
+		}
 		// set the correlation id to identify this in receiving process
 		String correlationId = execution.getBusinessKey();
 		if (correlationId == null) {			// if not set at process start

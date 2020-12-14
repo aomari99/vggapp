@@ -2,13 +2,13 @@
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0m1rt44" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
   <decision id="entscheidung" name="Entscheidung">
     <informationRequirement id="InformationRequirement_04f6pcz">
-      <requiredDecision href="#Decision_0zrwqbu" />
+      <requiredDecision href="#riskokategorie" />
     </informationRequirement>
     <informationRequirement id="InformationRequirement_1r128ji">
-      <requiredDecision href="#Decision_0m4iytt" />
+      <requiredDecision href="#riskalter" />
     </informationRequirement>
     <informationRequirement id="InformationRequirement_0692jn9">
-      <requiredDecision href="#Decision_1f3n2nd" />
+      <requiredDecision href="#risikobmi" />
     </informationRequirement>
     <decisionTable id="DecisionTable_0ij2arw" hitPolicy="FIRST">
       <input id="Input_1" label="Risikofaktor_BMI">
@@ -190,7 +190,7 @@ Vorerkrankungen &gt;= 25 wird die Entscheidung „manuelle Prüfung“ getroffen
   <inputData id="InputData_1197lmi" name="mbmi" />
   <inputData id="InputData_129o6dr" name="mrisk" />
   <inputData id="InputData_145evft" name="malter" />
-  <decision id="Decision_1f3n2nd" name="Risikofaktor_BMI">
+  <decision id="risikobmi" name="Risikofaktor_BMI">
     <informationRequirement id="InformationRequirement_0fbprre">
       <requiredInput href="#InputData_1197lmi" />
     </informationRequirement>
@@ -251,7 +251,7 @@ Vorerkrankungen &gt;= 25 wird die Entscheidung „manuelle Prüfung“ getroffen
       </rule>
     </decisionTable>
   </decision>
-  <decision id="Decision_0zrwqbu" name="Risikofaktor_Risikokategorie">
+  <decision id="riskokategorie" name="Risikofaktor_Risikokategorie">
     <informationRequirement id="InformationRequirement_0c4kagy">
       <requiredInput href="#InputData_129o6dr" />
     </informationRequirement>
@@ -296,7 +296,7 @@ Vorerkrankungen &gt;= 25 wird die Entscheidung „manuelle Prüfung“ getroffen
       </rule>
     </decisionTable>
   </decision>
-  <decision id="Decision_0m4iytt" name="Risikofaktor_Alter">
+  <decision id="riskalter" name="Risikofaktor_Alter">
     <informationRequirement id="InformationRequirement_1xd3vcm">
       <requiredInput href="#InputData_145evft" />
     </informationRequirement>
@@ -365,17 +365,17 @@ Vorerkrankungen &gt;= 25 wird die Entscheidung „manuelle Prüfung“ getroffen
         <di:waypoint x="535" y="160" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_0bg8n2d" dmnElementRef="InformationRequirement_0692jn9">
-        <di:waypoint x="250" y="300" />
+        <di:waypoint x="210" y="300" />
         <di:waypoint x="445" y="180" />
         <di:waypoint x="445" y="160" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1ozor05" dmnElementRef="InputData_1197lmi">
-        <dc:Bounds height="45" width="125" x="187" y="537" />
+        <dc:Bounds height="45" width="125" x="147" y="537" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0l397km" dmnElementRef="InformationRequirement_0fbprre">
-        <di:waypoint x="250" y="537" />
-        <di:waypoint x="250" y="400" />
-        <di:waypoint x="250" y="380" />
+        <di:waypoint x="210" y="537" />
+        <di:waypoint x="210" y="400" />
+        <di:waypoint x="210" y="380" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0ztfbe8" dmnElementRef="InputData_129o6dr">
         <dc:Bounds height="45" width="125" x="427" y="537" />
@@ -393,13 +393,13 @@ Vorerkrankungen &gt;= 25 wird die Entscheidung „manuelle Prüfung“ getroffen
         <di:waypoint x="730" y="400" />
         <di:waypoint x="730" y="380" />
       </dmndi:DMNEdge>
-      <dmndi:DMNShape id="DMNShape_0gf2at1" dmnElementRef="Decision_1f3n2nd">
-        <dc:Bounds height="80" width="180" x="160" y="300" />
+      <dmndi:DMNShape id="DMNShape_0gf2at1" dmnElementRef="risikobmi">
+        <dc:Bounds height="80" width="180" x="120" y="300" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="DMNShape_0kbi46a" dmnElementRef="Decision_0zrwqbu">
+      <dmndi:DMNShape id="DMNShape_0kbi46a" dmnElementRef="riskokategorie">
         <dc:Bounds height="80" width="180" x="400" y="300" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="DMNShape_1643fzn" dmnElementRef="Decision_0m4iytt">
+      <dmndi:DMNShape id="DMNShape_1643fzn" dmnElementRef="riskalter">
         <dc:Bounds height="80" width="180" x="640" y="300" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
