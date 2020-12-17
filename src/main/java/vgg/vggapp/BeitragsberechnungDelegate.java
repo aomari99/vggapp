@@ -21,7 +21,7 @@ public class BeitragsberechnungDelegate implements JavaDelegate {
 		long alter =  (long)processVariables.get("malter") ;
 		if(processVariables.get("riskobeitrag") != null)
 			riskobeitrag = (long)processVariables.get("riskobeitrag");
-		long beitrag = (alter *10) > 120  ? 120 +riskobeitrag :(alter *10)+riskobeitrag; 
+		long beitrag = (alter *10) > 110  ? (alter *10)+riskobeitrag  :110 + riskobeitrag; 
 		 
 		execution.setVariable("Beitrag", beitrag);
 		//execution.setProcessBusinessKey(correlationId);
